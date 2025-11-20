@@ -26,6 +26,7 @@ resource "random_integer" "deployment_id_suffix" {
 resource "azurerm_resource_group" "rg" {
   name     = "rg-${var.class_name}-${var.student_name}-${var.environment}-${var.location}-${random_integer.deployment_id_suffix.result}"
   location = var.location
+  is_hns_enabled = true
 
   tags = local.tags
 }
@@ -101,6 +102,7 @@ resource "azurerm_mssql_database" "db" {
   server_id = azurerm_mssql_server.sql.id
   sku_name    = "Standard"
   max_size_gb = 2
+  public_network_access_enabled = false
 
   tags = local.tags
 
