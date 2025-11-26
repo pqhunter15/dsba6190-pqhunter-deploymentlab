@@ -77,7 +77,7 @@ resource "azurerm_mssql_server" "sql" {
   administrator_login_password = var.sql_admin_password
 
   minimum_tls_version           = "1.2"
-  public_network_access_enabled = true   
+  public_network_access_enabled = true
 
   tags = local.tags
 }
@@ -87,7 +87,7 @@ resource "azurerm_mssql_database" "db" {
   name      = "sqldb-${var.class_name}-${var.student_name}-${var.environment}-${random_integer.deployment_id_suffix.result}"
   server_id = azurerm_mssql_server.sql.id
 
-  sku_name    = "basic"   
+  sku_name    = "basic"
   max_size_gb = 2
 
   tags = local.tags
