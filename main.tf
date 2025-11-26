@@ -73,8 +73,8 @@ resource "azurerm_mssql_server" "sql" {
   location            = azurerm_resource_group.rg.location
   version             = "12.0"
 
-  administrator_login          = sampleuser
-  administrator_login_password = Hg2fhj4rf%%r2
+  administrator_login          = "sampleuser"
+  administrator_login_password = "Hg2fhj4rf%%r2"
 
   minimum_tls_version           = "1.2"
   public_network_access_enabled = true
