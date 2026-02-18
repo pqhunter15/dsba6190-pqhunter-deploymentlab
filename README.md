@@ -1,38 +1,101 @@
-# DSBA6190 - Deployment Lab
+# Cloud Computing – Terraform Deployment Lab
 
-<h3 align="right">Colby T. Ford, Ph.D.</h3>
+## Overview
 
-## Set up your Repo's Secrets
+This repository contains infrastructure-as-code (IaC) configurations developed as part of a Cloud Computing course.  
+The objective of this project was to design, provision, and manage cloud infrastructure using **Terraform**, following reproducible and automated deployment practices.
 
-In your GitHub repo, create the follow secrets with the specified values.
+The lab demonstrates how modern cloud environments can be deployed programmatically rather than manually through cloud portals.
 
-- ARM_CLIENT_ID: `c075ec05-db99-4195-ba8b-f0d42995e5e1`
-- ARM_CLIENT_SECRET: `Check class website`
-- ARM_SUBSCRIPTION_ID: `b92ea061-7db2-40ee-ad4a-cee871832b64`
-- ARM_TENANT_ID: `88d59d7d-aecb-41b2-90c5-55595de02536`
+---
 
-(This was generated using the command `az ad sp create-for-rbac --name dsba6190devops` and then assigning the service principal as a *Contributor* the the Subscription.)
+## Project Objectives
 
-## Getting Started with Terraform
+- Learn Infrastructure as Code (IaC) principles
+- Deploy cloud resources using Terraform
+- Understand declarative infrastructure configuration
+- Practice repeatable and version-controlled deployments
+- Gain experience with cloud provisioning workflows
 
-Make your `main.tf`, `backend.tf`, and `variables.tf` files.
+---
 
-Initialize Terraform Locally
+## Technologies Used
+
+- **Terraform**
+- **Cloud Provider:** Azure
+- Git & GitHub for version control
+- CLI-based infrastructure deployment
+
+---
+
+## Repository Structure
+├── main.tf # Core infrastructure resources
+├── provider.tf # Cloud provider configuration
+├── variables.tf # Input variables
+├── outputs.tf # Deployment outputs
+├── terraform.tfvars # Variable values (environment configuration)
+└── README.md
+
+
+---
+
+## Infrastructure as Code Approach
+
+Terraform uses a **declarative configuration model**, meaning the desired infrastructure state is defined in code. Terraform then determines the necessary actions required to reach that state.
+
+Key workflow:
+
+1. Initialize Terraform environment
+2. Validate configuration
+3. Generate execution plan
+4. Apply infrastructure changes
+
+---
+
+## Deployment Instructions
+
+### Prerequisites
+
+- Install Terraform  
+  https://developer.hashicorp.com/terraform/downloads
+
+- Configure cloud provider credentials
+
+Example (Azure CLI):
+
 ```bash
+az login
 terraform init
-```
-
-Check your HCL formatting
-```bash
-terraform fmt --recursive
-```
-
-See what Terraform will deploy
-```bash
+terraform validate
 terraform plan
-```
+terraform apply
+terraform destroy
 
-## Deploying Using GitHub Actions
+## Key Concepts Demonstrated
 
-Once you commit and push your changes to the Terraform code, GitHub Actions will kick off a workflow that uses the secrets to deployed the Azure services.
-Your goal is to deploy the requested services as described in the lab document successfull through GitHub Actions.
+  - Infrastructure as Code (IaC)
+
+  - Terraform state management
+
+  - Provider configuration
+
+  - Modular infrastructure definition
+
+  - Reproducible deployments
+
+  - Version-controlled infrastructure
+
+## Learning Outcomes
+
+Through this lab, I gained hands-on experience with:
+
+  - Automating cloud deployments using Terraform
+
+  - Managing infrastructure lifecycle via CLI workflows
+
+  - Structuring IaC repositories for reproducibility
+
+  - Using GitHub for infrastructure version control
+
+  - Understanding how DevOps practices apply to cloud environments
+
