@@ -21,20 +21,22 @@ The lab demonstrates how modern cloud environments can be deployed programmatica
 
 ## Technologies Used
 
-- **Terraform**
-- **Cloud Provider:** Azure
+- Terraform
+- Cloud Provider: Azure
 - Git & GitHub for version control
 - CLI-based infrastructure deployment
 
 ---
 
 ## Repository Structure
-├── main.tf # Core infrastructure resources
-├── provider.tf # Cloud provider configuration
-├── variables.tf # Input variables
-├── outputs.tf # Deployment outputs
-├── terraform.tfvars # Variable values (environment configuration)
+```
+├── main.tf            # Core infrastructure resources
+├── provider.tf        # Cloud provider configuration
+├── variables.tf       # Input variables
+├── outputs.tf         # Deployment outputs
+├── terraform.tfvars   # Variable values (environment configuration)
 └── README.md
+```
 
 
 ---
@@ -64,11 +66,17 @@ Key workflow:
 Example (Azure CLI):
 
 ```bash
+#login to Azure
 az login
+# download required providers and initializes the working directory
 terraform init
+#Ensure configuration syntax is correct.
 terraform validate
+#Show resources that will be created or modified.
 terraform plan
+#Provision resources
 terraform apply
+#remove resources to avoid ongoing cloud costs.
 terraform destroy
 ```
 ## Key Concepts Demonstrated
